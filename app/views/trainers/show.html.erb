@@ -3,3 +3,26 @@
     <h1><%= @trainer.name %></h1>
   </div>
 </div>
+
+<div class="container mt-3">
+  <div class="row">
+    <% @trainer.pokemons.each do |pokemon| %>
+      <div class="col-12 col-md-4 mb-3">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= pokemon.image_url %>)">
+          <%= pokemon.name %>
+          <%= link_to '+', pokemon_path(pokemon), class: 'remove__link', data: { turbo_method: :delete, turbo_confirm: 'Are you SURE?!?!?!?!?! Send to the pc!'} %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-3 bg-white border rounded px-2 py-3">
+      <%= simple_form_for([@trainer, @pokemon]) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :image_url %>
+        <%= f.submit 'Add pokemon', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
