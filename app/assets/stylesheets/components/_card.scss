@@ -30,3 +30,18 @@
   top: 8px;
   right: 8px;
 }
+
+
+.card__tags {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+
+  span {
+    font-size: .7rem;
+    background-color: lightcoral;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 400;
+  }
+}

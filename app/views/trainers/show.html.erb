@@ -11,6 +11,12 @@
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= pokemon.image_url %>)">
           <%= pokemon.name %>
           <%= link_to '+', pokemon_path(pokemon), class: 'remove__link', data: { turbo_method: :delete, turbo_confirm: 'Are you SURE?!?!?!?!?! Send to the pc!'} %>
+          <div class="card__tags">
+            <% pokemon.types.each do |type| %>
+              <span><%= type.name %></span>
+            <% end %>
+            <%= link_to '+', new_pokemon_pokemon_type_path(pokemon) %>
+          </div>
         </div>
       </div>
     <% end %>

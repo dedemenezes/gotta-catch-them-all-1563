@@ -19,4 +19,10 @@ misty = Trainer.create(name: 'Misty', banner_url: 'https://epipoca.com.br/wp-con
 
 puts "#{misty.name} created!"
 
+types = ["Electric", "Water", "Fire", "Grass", 'Normal']
+
+types.each do |type_name|
+  Type.create(name: type_name)
+end
+
 puts 'finished! zo/'

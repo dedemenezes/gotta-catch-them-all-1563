@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     resources :pokemons, only: [:create]
   end
 
-  resources :pokemons, only: :destroy
+  resources :pokemons, only: :destroy do
+    resources :pokemon_types, only: [:new, :create]
+  end
 end
